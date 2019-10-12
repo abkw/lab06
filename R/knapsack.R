@@ -96,19 +96,3 @@ brute_force_knapsack <- function(x,W,parallel = FALSE) {
   return(best_combination)
 }
 
-#Testing the function
-#RNGkind(sample.kind = "Rounding")
-# set.seed(42)
-# n <- 2000
-# knapsack_objects <-
-#   data.frame(
-#     w=sample(1:4000, size = n, replace = TRUE),
-#     v=runif(n = n, 0, 10000)
-#   )
-#
-# system.time(brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500))
-
-# start_time <- Sys.time()
-# brute_force_knapsack(x = knapsack_objects[1:8,], W = 2000)
-# end_time <- Sys.time()
-# print(end_time - start_time)

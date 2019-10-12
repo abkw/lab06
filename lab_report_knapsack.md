@@ -10,14 +10,10 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
 
-```{r setup}
+
+
+```r
 library(lab6)
 library(profvis)
 library(parallel)
@@ -25,8 +21,7 @@ library(parallel)
 
 # Profiling
 
-Profiling could be manually run on profile_provis.R file, lineprof was first used then profvis is used for lineprof isn't support by R version 3.6.1.  <br />  
-Two functions were developed for each algorithm using different approaches and the better function of each two is submitted.
+Profiling could be manually run on profile_provis.R file
 
 ![Profile by using 'profvis'](profileImage.png)
 
@@ -180,7 +175,8 @@ List
 **brute_force_knapsack(x,W)**
   :The brute_force_knapsack function returns a list containing the maximum value and the elements to be included in the sack
    The brute force function also shows the time slack of the function execution time
-```{r brute}
+
+```r
 set.seed(42)
 n <- 2000
 knapsack_objects <-
@@ -191,29 +187,49 @@ knapsack_objects <-
 
 start_time <- Sys.time()
 brute_force_knapsack(x = knapsack_objects[1:8,], W = 2000)
+#> $value
+#> [1] 15428
+#> 
+#> $elements
+#> [1] 3 8
 end_time <- Sys.time()
 print(end_time - start_time)
+#> Time difference of 0.04023695 secs
 ```
 
 **dynamic_knapsack(x,W)**
     :The dynamic_knapsack function returns a list containing the maximum value and the elements to be included in the sack
    The brute force function also shows the time slack of the function execution time.
-```{r dynamic}
+
+```r
 start_time <- Sys.time()
 dynamic_knapsack(x = knapsack_objects[1:8,], W = 2000)
+#> $value
+#> [1] 15428
+#> 
+#> $elements
+#> [1] 3 8
 end_time <- Sys.time()
 print(end_time - start_time)
+#> Time difference of 0.01188898 secs
 ```
 
 **greedy_knapsack(x,W)**
   :The greedy_knapsack function returns a list containing the maximum value and the elements to be included in the sack
    The brute force function also shows the time slack of the function execution time.
-```{r greedy}
+
+```r
 start_time <- Sys.time()
 greedy_knapsack(x = knapsack_objects[1:8,], W = 2000)
+#> $value
+#> [1] 15428
+#> 
+#> $elements
+#> [1] 8 3
 end_time <- Sys.time()
 print(end_time - start_time)
-``` 
+#> Time difference of 0.003148556 secs
+```
 
 # References
 
